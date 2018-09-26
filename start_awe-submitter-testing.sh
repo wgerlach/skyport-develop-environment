@@ -4,13 +4,6 @@ cat <<'EOF'
 
 ====================================================================================
 
-#get compliance tests
-cd /
-git clone https://github.com/common-workflow-language/common-workflow-language.git
-apk add bash
-pip install cwltest
-
-
 # compile
 cd $AWE ; CGO_ENABLED=0 go install  ./awe-submitter/
 
