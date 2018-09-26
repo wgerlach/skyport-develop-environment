@@ -6,7 +6,7 @@ cat <<'EOF'
 
 cd $AWE ; CGO_ENABLED=0 go install ./awe-worker/
 
-/go/bin/awe-worker  --name ${NAME} --data=${WORKER_DATADIR}/data --logs=${WORKER_DATADIR}/logs --workpath=${WORKER_DATADIR}/work  --serverurl=https://skyport.local:8001/awe/api/ --group=docker --supported_apps=* --auto_clean_dir=false --debuglevel=3 
+/go/bin/awe-worker  --name ${NAME} --data=${WORKER_DATADIR}/data --logs=${WORKER_DATADIR}/logs --workpath=${WORKER_DATADIR}/work  --serverurl=http://skyport.local:8001/awe/api/ --group=docker --supported_apps=* --auto_clean_dir=false --debuglevel=3 
 
 ====================================================================================
 
@@ -30,4 +30,4 @@ export NAME=skyport2_awe-worker_1
 export WORKER_DATADIR=/Users/wolfganggerlach/awe_data
 source /Users/wolfganggerlach/git/Skyport2/skyport2.env
 docker rm -f ${NAME} > /dev/null 2>&1
-docker run -ti --network skyport2_default --name ${NAME} --add-host skyport.local:${SKYPORT_DOCKER_GATEWAY}  -e name=${NAME} -e WORKER_DATADIR=${WORKER_DATADIR} --workdir=/go/src/github.com/MG-RAST/AWE -v ${WORKER_DATADIR}:${WORKER_DATADIR} -v /Users/wolfganggerlach/git/Skyport2/live-data/env/:/skyport2-env/:ro -v ${DOCKER_BINARY}:/usr/local/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /Users/wolfganggerlach/gopath/src:/go/src -v /tmp:/tmp  mgrast/awe-worker ash
+docker run -ti --network skyport2_default --name ${NAME} --add-host skyport.local:${SKYPORT_DOCKER_GATEWAY}  -e NAME=${NAME} -e WORKER_DATADIR=${WORKER_DATADIR} --workdir=/go/src/github.com/MG-RAST/AWE -v ${WORKER_DATADIR}:${WORKER_DATADIR} -v /Users/wolfganggerlach/git/Skyport2/live-data/env/:/skyport2-env/:ro -v ${DOCKER_BINARY}:/usr/local/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /Users/wolfganggerlach/gopath/src:/go/src -v /tmp:/tmp  mgrast/awe-worker ash
