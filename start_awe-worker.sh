@@ -4,7 +4,7 @@ cat <<'EOF'
 
 ====================================================================================
 
-cd $AWE ; CGO_ENABLED=0 go install ./awe-worker/
+cd $AWE ; ./compile-worker.sh
 
 /go/bin/awe-worker  --name ${NAME} --data=${WORKER_DATADIR}/data --logs=${WORKER_DATADIR}/logs --workpath=${WORKER_DATADIR}/work  --serverurl=http://skyport.local:8001/awe/api/ --group=docker --supported_apps=* --auto_clean_dir=false --debuglevel=3 
 

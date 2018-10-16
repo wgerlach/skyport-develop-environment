@@ -4,7 +4,7 @@ cat <<'EOF'
 
 ====================================================================================
 
-cd $AWE ; CGO_ENABLED=0 go install ./awe-server
+cd $AWE ; ./compile.sh
 
 awe-server --logoutput=console --debuglevel=3 --hosts=awe-mongo --user=awe --password=test --api-url='http://localhost:8001/awe/api/' --site-url='http://localhost:8081/awe/' --users=demo --oauth_urls='http://auth/cgi-bin/?action=data' --oauth_bearers='oauth'  --login_url='http://localhost:8001/auth/cgi-bin/clientAWE.cgi' --title="Wolfgang's test AWE server" --max_work_failure=1 --recover
 

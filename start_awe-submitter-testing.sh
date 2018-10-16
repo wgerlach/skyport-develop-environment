@@ -5,7 +5,7 @@ cat <<'EOF'
 ====================================================================================
 
 # compile
-cd $AWE ; CGO_ENABLED=0 go install  ./awe-submitter/
+cd $AWE ; ./compile-submitter.sh
 
 # submit
 awe-submitter --shockurl=http://skyport.local:8001/shock/api/ --serverurl=http://skyport.local:8001/awe/api/  ...
