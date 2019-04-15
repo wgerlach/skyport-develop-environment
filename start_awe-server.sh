@@ -14,4 +14,4 @@ EOF
 
 
 docker rm -f skyport2_awe-server_1 > /dev/null 2>&1
-docker run -ti --name skyport2_awe-server_1 --rm --network skyport2_default --network-alias awe-server -p 82:8081 -p 8002:8001 -v /Users/wolfganggerlach/gopath/src:/go/src mgrast/awe
+docker run -ti --name skyport2_awe-server_1 --rm --network skyport2_default --network-alias awe-server -p 82:8081 -p 8002:8001 -v /Users/wolfganggerlach/gopath/src:/go/src mgrast/awe-server
