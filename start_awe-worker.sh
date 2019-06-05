@@ -6,7 +6,7 @@ cat <<'EOF'
 
 cd $AWE ; ./compile-worker.sh
 
-/go/bin/awe-worker  --name ${NAME} --data=${WORKER_DATADIR}/data --logs=${WORKER_DATADIR}/logs --workpath=${WORKER_DATADIR}/work  --serverurl=http://skyport.local:8001/awe/api/ --group=docker --supported_apps=* --auto_clean_dir=false --debuglevel=3 
+/go/bin/awe-worker  --name ${NAME} --data=${WORKER_DATADIR}/data --logs=${WORKER_DATADIR}/logs --workpath=${WORKER_DATADIR}/work  --serverurl=http://awe-server:8001 --group=default --supported_apps=* --auto_clean_dir=false --debuglevel=3 
 
 ====================================================================================
 
@@ -26,7 +26,7 @@ if [ ! -e ${DOCKER_BINARY} ] ; then
   mv docker/docker ${DOCKER_BINARY}
 fi
 
-export NAME=skyport2_awe-worker_1
+export NAME=testing_awe-worker_1
 export WORKER_DATADIR=/Users/wolfganggerlach/awe_data
 source /Users/wolfganggerlach/git/Skyport2/skyport2.env
 docker rm -f ${NAME} > /dev/null 2>&1
