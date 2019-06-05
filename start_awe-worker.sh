@@ -28,6 +28,6 @@ fi
 
 export NAME=testing_awe-worker_1
 export WORKER_DATADIR=/Users/wolfganggerlach/awe_data
-source /Users/wolfganggerlach/git/Skyport2/skyport2.env
+#source /Users/wolfganggerlach/git/Skyport2/skyport2.env
 docker rm -f ${NAME} > /dev/null 2>&1
-docker run -ti --network testing_default --name ${NAME} --add-host skyport.local:${SKYPORT_DOCKER_GATEWAY}  -e NAME=${NAME} -e WORKER_DATADIR=${WORKER_DATADIR} --workdir=/go/src/github.com/MG-RAST/AWE -v ${WORKER_DATADIR}:${WORKER_DATADIR} -v /Users/wolfganggerlach/git/Skyport2/live-data/env/:/skyport2-env/:ro -v ${DOCKER_BINARY}:/usr/local/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /Users/wolfganggerlach/gopath/src:/go/src -v /tmp:/tmp  mgrast/awe-worker ash
+docker run -ti --network testing_default --name ${NAME} -e NAME=${NAME} -e WORKER_DATADIR=${WORKER_DATADIR} --workdir=/go/src/github.com/MG-RAST/AWE -v ${WORKER_DATADIR}:${WORKER_DATADIR} -v /Users/wolfganggerlach/git/Skyport2/live-data/env/:/skyport2-env/:ro -v ${DOCKER_BINARY}:/usr/local/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /Users/wolfganggerlach/gopath/src:/go/src -v /tmp:/tmp  mgrast/awe-worker ash
